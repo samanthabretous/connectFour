@@ -4,7 +4,7 @@ var Box = React.createClass({
   render() {
     return(
       <article className="box">
-        <div >Circle</div>
+        <div className={this.props.value}>{this.props.value}</div>
       </article>
     )
   }

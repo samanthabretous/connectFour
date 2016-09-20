@@ -8,19 +8,28 @@ import Game from './Game'
 var App = React.createClass({
   getInitialState() {
     return {
-      matrix:[["a",0,0,0,0,0],
+      matrix:[["a",1,2,3,4,5],
               ["b",0,0,0,0,0],
               ["c",0,0,0,0,0],
               ["d",0,0,0,0,0],
               ["e",0,0,0,0,0],
               ["f",0,0,0,0,0],
-              ["g",0,0,0,0,0]]};
+              ["g",0,0,0,0,0]],
+      player: "red"
+    };
+  },
+  handleClick(event) {
+    console.log(event.target)
+    var player = this.state.player === "red" ? "blue" : "red"
+    this.setState({player: player})
   },
   render() {
-    console.log(<Game/>)
     return (
       <div>
-        <Game/>
+        <Game 
+          matrix={this.state.matrix} 
+          handleClick={this.handleClick}
+        />
       </div>
     )
   }

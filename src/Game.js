@@ -7,12 +7,16 @@ var Game = React.createClass({
 
   //return columns
   render() {
-    var columns = []
-    for(var i = 0; i < 7; i++){
-      columns.push(<Column />)
-    }
+    var matrix = this.props.matrix
+
+    var columns = matrix.map(function(arr, i){
+      return <Column arr={arr} key={i} index={i} />
+    })
     return(
-      <div className="game">
+      <div 
+        className="game"
+        onClick={this.props.handleClick}
+      >
       {columns}
       </div>
     )

@@ -5,13 +5,13 @@ import Box from './Box';
 var Column = React.createClass({
 
   render () {
-    console.log(Box)
-    var boxes = []
-    for(var i = 0; i < 6; i++){
-      boxes.push(<Box />)
-    }
+    var arr = this.props.arr;
+    //arr goes here
+    var boxes = arr.map(function(elem, i){
+      return <Box value={elem} key={i}/>
+    });
     return(
-      <section className="column">
+      <section value={this.props.index} className="column">
         {boxes}
       </section>
     )
