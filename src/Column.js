@@ -6,12 +6,13 @@ var Column = React.createClass({
 
   render () {
     var arr = this.props.arr;
+    var index= this.props.index
     //arr goes here
     var boxes = arr.map(function(elem, i){
-      return <Box value={elem} key={i}/>
+      return <Box value={elem} alt={index} key={i} />
     });
     return(
-      <section value={this.props.index} className="column">
+      <section value={index} className="column">
         {boxes}
       </section>
     )
